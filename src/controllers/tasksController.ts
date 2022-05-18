@@ -16,4 +16,12 @@ export default class TasksController {
     return res.status(code).json(tasks);
   };
 
+  public getById = async (req: Request, res: Response): Promise<Response> => {
+    const { id } = req.params;
+    const { code, message, task } = await this.tasksService.getById(Number(id));
+
+    if (!task) return res.status(code).json({ message });
+
+    return res.status(code).json(task);
+  };
 }
