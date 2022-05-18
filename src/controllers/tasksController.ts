@@ -48,4 +48,15 @@ export default class TasksController {
     return res.status(code).json({ message });
   };
 
+  public create = async (req: Request, res: Response): Promise<Response> => {
+    const { task } = req.body;
+
+    if (!task) return res.status(400).json({ message: 'Task is required' });
+
+    const { code, message, created } = await this.tasksService.create(task);
+
+    if (!created) return res.status(code).json({ message });
+
+    return res.status(code).json(created);
+  };
 }
