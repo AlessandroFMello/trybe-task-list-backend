@@ -38,4 +38,14 @@ export default class TasksController {
     return res.status(code).json(updated);
   };
 
+  public delete = async (req: Request, res: Response): Promise<Response> => {
+    const { id } = req.params;
+
+    const { code, message, deleted } = await this.tasksService.delete(Number(id));
+
+    if (!deleted) return res.status(code).json({ message });
+
+    return res.status(code).json({ message });
+  };
+
 }
