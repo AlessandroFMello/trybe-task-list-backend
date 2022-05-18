@@ -9,4 +9,6 @@ router.get('/', tasksController.getAll);
 
 router.get('/:id', tasksController.getById);
 
+router.put('/:id', tasksValidation, tasksController.update);
+
 export default router;
