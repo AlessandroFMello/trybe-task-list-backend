@@ -11,4 +11,6 @@ router.get('/:id', tasksController.getById);
 
 router.put('/:id', tasksValidation, tasksController.update);
 
+router.delete('/:id', tasksController.delete);
+
 export default router;
