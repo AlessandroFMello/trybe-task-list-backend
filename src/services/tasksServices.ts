@@ -47,4 +47,15 @@ export default class TasksServices {
     };
   }
 
+  public async create(task: string) {
+    const created = await prisma.taskList.create({
+      data: {
+        task,
+      },
+    });
+
+    if (!created) return { code: StatusCodes.BAD_REQUEST, message: 'Failed to create task' };
+
+    return { code: StatusCodes.OK, created };
+  }
 }
