@@ -18,4 +18,19 @@ export default class TasksServices {
     return { code: StatusCodes.OK, task };
   }
 
+  public async update(id: number, task: string) {
+    const findTask = await this.getById(id);
+
+    if (!findTask) return { code: StatusCodes.NOT_FOUND, message: 'Task not found' };
+
+    const updated = await prisma.taskList.update({
+      where: { id },
+      data: {
+        task,
+      },
+    });
+
+    return { code: StatusCodes.OK, updated };
+  }
+
 }
