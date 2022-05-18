@@ -8,4 +8,12 @@ export default class TasksController {
     this.tasksService = new TasksServices();
   }
 
+  public getAll = async (_req: Request, res: Response): Promise<Response> => {
+    const { code, message, tasks } = await this.tasksService.getAll();
+
+    if (!tasks) return res.status(code).json({ message });
+
+    return res.status(code).json(tasks);
+  };
+
 }
