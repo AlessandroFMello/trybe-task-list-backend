@@ -1,9 +1,10 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
 const errorMiddleware = (
   error: unknown,
   _req: Request,
   res: Response,
+  _next: NextFunction,
 ) => {
   console.log(error);
 

@@ -51,6 +51,7 @@ export default class TasksServices {
     const created = await prisma.taskList.create({
       data: {
         task,
+        status: 'PENDING',
       },
     });
 
