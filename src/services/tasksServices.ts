@@ -10,4 +10,12 @@ export default class TasksServices {
     return { code: StatusCodes.OK, tasks };
   }
 
+  public async getById(id: number) {
+    const task = await prisma.taskList.findFirst({ where: { id } });
+
+    if (!task) return { code: StatusCodes.NOT_FOUND, message: 'Task not found' };
+
+    return { code: StatusCodes.OK, task };
+  }
+
 }
