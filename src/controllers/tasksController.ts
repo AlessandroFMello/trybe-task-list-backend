@@ -25,13 +25,26 @@ export default class TasksController {
     return res.status(code).json(task);
   };
 
-  public update = async (req: Request, res: Response): Promise<Response> => {
+  public updateTask = async (req: Request, res: Response): Promise<Response> => {
     const { id } = req.params;
     const { task } = req.body;
 
     if (!task) return res.status(400).json({ message: 'Updated task is required' });
 
-    const { code, message, updated } = await this.tasksService.update(Number(id), task);
+    const { code, message, updated } = await this.tasksService.updateTask(Number(id), task);
+
+    if (!updated) return res.status(code).json({ message });
+
+    return res.status(code).json(updated);
+  };
+
+  public updateStatus = async (req: Request, res: Response): Promise<Response> => {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    if (!status) return res.status(400).json({ message: 'Updated status is required' });
+
+    const { code, message, updated } = await this.tasksService.updateStatus(Number(id), status);
 
     if (!updated) return res.status(code).json({ message });
 
