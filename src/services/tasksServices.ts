@@ -19,7 +19,7 @@ export default class TasksServices {
   }
 
   public async updateTask(id: number, task: string) {
-    const findTask = await this.getById(id);
+    const findTask = await prisma.taskList.findFirst({ where: { id } });
 
     if (!findTask) return { code: StatusCodes.NOT_FOUND, message: 'Task not found' };
 
@@ -34,7 +34,7 @@ export default class TasksServices {
   }
 
   public async updateStatus(id: number, status: string) {
-    const findTask = await this.getById(id);
+    const findTask = await prisma.taskList.findFirst({ where: { id } });
 
     if (!findTask) return { code: StatusCodes.NOT_FOUND, message: 'Task not found' };
 
