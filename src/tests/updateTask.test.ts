@@ -62,21 +62,16 @@ describe('Testa requisições "PUT" para atualizar uma task por id"', () => {
         expect(chaiHttpResponse.body.message).to.be.equal('Task field is required');
 		});
 
-	// 	it('Testa se cada requisição que retorna estes objetos por id contém as propriedades devidas',async () => {
-  //     const allIds: number[] = await getAllIds();
-	// 		allIds.forEach(async (id: number) => {
-	// 			chaiHttpResponse = await chai
-	// 				 .request(app).get(`/tasks/${id}`)
-
-  //          const body = chaiHttpResponse.body;
-  //          body.forEach((item: taskList) => {
-  //            expect(item).to.have.property('id');
-  //            expect(item).to.have.property('task');
-  //            expect(item).to.have.property('status');
-  //            expect(item).to.have.property('createdAt');
-	// 		  });
-	// 		});
-	// 	});
+    it('Testa se a requisição retorna a mensagem "All fields must be filled" quando o campo task é passado vazio', async() => {
+			const allIds: number[] = await getAllIds();
+        chaiHttpResponse = await chai
+        .request(app)
+        .put(`/tasks/${allIds[0]}`)
+        .send({task: ''})
+        .set('Content-Type', 'application/json')
+    
+        expect(chaiHttpResponse.body.message).to.be.equal('All fields must be filled');
+		});
 
 		it('Testa se caso não exista o id procurado retorne erro 404', async() => {
 			chaiHttpResponse = await chai
@@ -84,8 +79,6 @@ describe('Testa requisições "PUT" para atualizar uma task por id"', () => {
 			.put('/tasks/999999')
       .send({task: "updated task"})
       .set('Content-Type', 'application/json')
-      console.log(chaiHttpResponse.status)
-      console.log(chaiHttpResponse.body)
 
 			expect(chaiHttpResponse.status).to.be.equal(404)
 		});
