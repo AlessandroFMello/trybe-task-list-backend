@@ -7,7 +7,7 @@
 Clone the repo
 ```bash
 git clone git@github.com:AlessandroFMello/trybe-task-list-backend.git
-cd app/backend
+cd trybe-task-list-backend
 ```
 
 Create your .env file accordingly to the provided .env.example file
