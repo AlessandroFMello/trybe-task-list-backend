@@ -47,3 +47,9 @@ Opening [http://localhost:3001/tasks](http://localhost:3001/tasks) should show y
 Opening [http://localhost:3001/tasks/:id](http://localhost:3001/tasks/:id) should show you the task by id
 
 Now you`re good to go
+
+You are ready to get your frontend running:
+
+## NEXT STEPS
+
+Go to [https://github.com/AlessandroFMello/trybe-task-list-frontend](https://github.com/AlessandroFMello/trybe-task-list-frontend) and follow the README.md instructions!!
