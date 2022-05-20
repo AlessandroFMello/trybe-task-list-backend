@@ -5,7 +5,7 @@ export default class TasksServices {
   public async getAll() {
     const tasks = await prisma.taskList.findMany();
 
-    if (!tasks) return { code: StatusCodes.NOT_FOUND, message: 'Task not found' };
+    if (!tasks) return { code: StatusCodes.NOT_FOUND, message: 'Tasks not found' };
 
     return { code: StatusCodes.OK, tasks };
   }
@@ -55,8 +55,6 @@ export default class TasksServices {
 
     const deleted = await prisma.taskList.delete({ where: { id } });
 
-    if (!deleted) return { code: StatusCodes.BAD_REQUEST, message: 'Task not deleted' };
-
     return {
       code: StatusCodes.OK, message: 'Task deleted successfully', deleted,
     };
@@ -69,8 +67,6 @@ export default class TasksServices {
         status: 'PENDING',
       },
     });
-
-    if (!created) return { code: StatusCodes.BAD_REQUEST, message: 'Failed to create task' };
 
     return { code: StatusCodes.OK, created };
   }

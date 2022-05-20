@@ -29,8 +29,6 @@ export default class TasksController {
     const { id } = req.params;
     const { task } = req.body;
 
-    if (!task) return res.status(400).json({ message: 'Updated task is required' });
-
     const { code, message, updated } = await this.tasksService.updateTask(Number(id), task);
 
     if (!updated) return res.status(code).json({ message });
@@ -41,8 +39,6 @@ export default class TasksController {
   public updateStatus = async (req: Request, res: Response): Promise<Response> => {
     const { id } = req.params;
     const { status } = req.body;
-
-    if (!status) return res.status(400).json({ message: 'Updated status is required' });
 
     const { code, message, updated } = await this.tasksService.updateStatus(Number(id), status);
 
@@ -64,11 +60,7 @@ export default class TasksController {
   public create = async (req: Request, res: Response): Promise<Response> => {
     const { task } = req.body;
 
-    if (!task) return res.status(400).json({ message: 'Task is required' });
-
-    const { code, message, created } = await this.tasksService.create(task);
-
-    if (!created) return res.status(code).json({ message });
+    const { code, created } = await this.tasksService.create(task);
 
     return res.status(code).json(created);
   };
