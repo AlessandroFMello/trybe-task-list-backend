@@ -4,10 +4,16 @@
 * Linux / WSL Environment
 
 ## Setup
-Clone the repo
+# Clone the repo
+If you prefere SSH:
 ```bash
 git clone git@github.com:AlessandroFMello/trybe-task-list-backend.git
 cd trybe-task-list-backend
+```
+If you prefere HTTP:
+```bash
+git clone https://github.com/AlessandroFMello/trybe-task-list-backend.git
+cd trybe-task-list-frontend
 ```
 
 Create your .env file accordingly to the provided .env.example file
