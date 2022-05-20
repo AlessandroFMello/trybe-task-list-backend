@@ -1,10 +1,10 @@
-## Trybe-Task-List-Backend
+# Trybe-Task-List-Backend
 
-## Requirements
+# Requirements
 * Linux / WSL Environment
 
-## Setup
-# Clone the repo
+# Setup
+## Clone the repo
 If you prefere SSH:
 ```bash
 git clone git@github.com:AlessandroFMello/trybe-task-list-backend.git
