@@ -14,7 +14,6 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 const getAllIds = async () => {
-	// try {
 		const tasks = await prisma.taskList.findMany();
 
 		let idsArray: number[] = [];
@@ -24,10 +23,6 @@ const getAllIds = async () => {
 		});
 
 		return idsArray;
-	// } catch (error: any) {
-	// 	const errorMessage:string = error.message;
-	// 	return errorMessage;
-	// }
 }
 
 describe('Testa requisições "GET" para retornar cada task por id"', () => {
