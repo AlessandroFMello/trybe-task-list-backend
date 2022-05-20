@@ -11,4 +11,3 @@ services:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=123456
     restart: 'always'
-

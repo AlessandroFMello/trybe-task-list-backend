@@ -2,6 +2,7 @@
 
 # Requirements
 * Linux / WSL Environment
+* Docker-Compose
 
 # Setup
 Clone the repo
