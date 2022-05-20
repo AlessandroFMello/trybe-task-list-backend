@@ -4,7 +4,8 @@
 * Linux / WSL Environment
 
 # Setup
- Clone the repo
+Clone the repo
+
 If you prefere SSH:
 ```bash
 git clone git@github.com:AlessandroFMello/trybe-task-list-backend.git
