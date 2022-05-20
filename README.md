@@ -29,6 +29,16 @@ npm install
 or
 ```bash
 npm i
+
+```
+
+To run the database
+```bash
+docker-compose up -d --build
+```
+To drop the database
+```bash
+docker-compose down --remove-orphans
 ```
 
 Run prisma generate
